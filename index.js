@@ -4,13 +4,13 @@ var RCTToastAndroid = Platform.OS === 'android' ? ToastAndroid : NativeModules.L
 
 var SimpleToast = {
   // Toast duration constants
-  SHORT: RCTToastAndroid.SHORT,
-  LONG: RCTToastAndroid.LONG,
+  SHORT: Platform.OS === 'android' ? RCTToastAndroid.SHORT : 0,
+  LONG: Platform.OS === 'android' ? RCTToastAndroid.LONG : 1,
 
   // Toast gravity constants
-  TOP: RCTToastAndroid.TOP,
-  BOTTOM: RCTToastAndroid.BOTTOM,
-  CENTER: RCTToastAndroid.CENTER,
+  TOP: Platform.OS === 'android' ? RCTToastAndroid.TOP : 49,
+  BOTTOM: Platform.OS === 'android' ? RCTToastAndroid.BOTTOM : 81,
+  CENTER: Platform.OS === 'android' ? RCTToastAndroid.CENTER : 17,
 
   show: function (
     message,
